@@ -1,0 +1,434 @@
+:root {
+  --main-radius: 5px;
+  --main-padding: 5px;
+  --main-primary-color: #0a357b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@import "Utils.css";
+
+.container {
+  display: grid;
+  grid-template-columns: 0.12fr 1fr 0.12fr;
+  grid-template-areas:
+    "nav nav nav"
+    "sidebarLeft content1 sidebarRight"
+    "sidebarLeft main sidebarRight"
+    "footer footer footer";
+}
+main {
+  grid-area: main;
+}
+
+nav {
+  background: var(--main-primary-color);
+  grid-area: nav;
+  display: grid;
+  height: 120px;
+  grid-template-columns: 0.12fr 1fr 0.12fr;
+  grid-template-areas:
+    "nav1 nav2 nav2"
+    "nav1 nav3 nav3";
+}
+.nav1 {
+  grid-area: nav1;
+}
+.nav2 {
+  grid-area: nav2;
+}
+
+.nav3 {
+  grid-area: nav3;
+  display: grid;
+  column-gap: 2em;
+  grid-template-columns: 2.07fr 1fr;
+  grid-template-areas: "nav3-1 nav3-2";
+}
+.nav3-1 {
+  grid-area: nav3-1;
+}
+.nav3-2 {
+  grid-area: nav3-2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+nav .logo {
+  width: 100%;
+  max-width: 7em;
+  height: auto;
+}
+nav .container-logo {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  justify-content: flex-start;
+}
+.container-search {
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-search input#search {
+  width: 50px;
+  height: 50px;
+  background: var(--main-primary-color);
+  border: none;
+  font-size: 14pt;
+  float: left;
+  color: #262626;
+  padding-left: 50px;
+  color: #fff;
+  border-bottom: 3px solid #edeeee;
+  -webkit-transition: width 0.55s ease-in-out;
+  -moz-transition: width 0.55s ease-in-out;
+  -ms-transition: width 0.55s ease-in-out;
+  -o-transition: width 0.55s ease-in-out;
+  transition: width 0.55s ease-in-out;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+.container-search input#search::-webkit-input-placeholder {
+  color: #e4e4e6;
+}
+
+.container-search input#search:-moz-placeholder {
+  /* Firefox 18- */
+  color: #e4e4e6;
+}
+
+.container-search input#search::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #e4e4e6;
+}
+
+.container-search input#search:-ms-input-placeholder {
+  color: #e4e4e6;
+}
+
+.container-search .icon:before {
+  position: absolute;
+  top: 50%;
+  margin-right: 10px;
+  z-index: 1;
+  color: #4f5b66;
+}
+.container-search .icon img {
+  margin-top: 20px;
+  margin-left: -32px;
+}
+
+.container-search input#search:focus,
+.container-search input#search:active {
+  outline: none;
+  width: 260px;
+  background: rgba(0, 173, 255, 0.54);
+}
+
+.container-search:hover input#search {
+  width: 260px;
+  background: rgba(0, 173, 255, 0.54);
+}
+
+.container-search:hover .icon {
+  color: #93a2ad;
+}
+.container-search img::before {
+  display: block;
+}
+
+#sidebarLeft {
+  grid-area: sidebarLeft;
+  background: #727070;
+}
+
+#sidebarRight {
+  grid-area: sidebarRight;
+  background: #727070;
+}
+
+#content1 {
+  grid-area: content1;
+  display: grid;
+  min-height: 110px;
+  grid-template-columns: 2fr 1fr 1fr;
+  column-gap: 2em;
+  padding-bottom: 2em;
+  grid-template-areas: "content1-1 content1-2 content1-3";
+}
+#content1-1 {
+  grid-area: content1-1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+#content1-1 h2 {
+  font-size: 2.6rem;
+}
+#content1-2 {
+  grid-area: content1-2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#content1-3 {
+  grid-area: content1-3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#content1 .btn-bookmark {
+  background-color: var(--main-primary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.2rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#content1 .btn-icon {
+  width: auto;
+  height: 1rem;
+}
+#content1 .btn-text {
+  color: #fff;
+  padding-left: 10px;
+  border: 1px solid transparent;
+}
+#content1 .dropdown {
+  color: #262626;
+  font-size: 1rem;
+  padding: 0.45rem 0rem 0.45rem 0.25rem;
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  border-bottom: 1px solid #444444;
+}
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+#content1 .select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+#content1 .select-wrapper::after {
+  content: "▼";
+  font-size: 1rem;
+  top: 6px;
+  right: 10px;
+  position: absolute;
+}
+#content2 {
+  grid-area: content2;
+  display: grid;
+  min-height: 420px;
+  column-gap: 2em;
+  row-gap: 2em;
+  padding-bottom: 2em;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1.2fr 0.8fr;
+  grid-template-areas:
+    "content2-1 content2-2 content2-3"
+    "content2-1 content2-4 content2-5";
+}
+#content2-1 {
+  grid-area: content2-1;
+}
+#content2-2 {
+  grid-area: content2-2;
+}
+#content2-3 {
+  grid-area: content2-3;
+}
+#content2-4 {
+  grid-area: content2-4;
+}
+#content2-5 {
+  grid-area: content2-5;
+}
+#content3 {
+  grid-area: content3;
+  column-gap: 2em;
+  row-gap: 2em;
+  display: grid;
+  min-height: 260px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "content3-1 content3-2 content3-3";
+}
+#content3-1 {
+  grid-area: content3-1;
+}
+#content3-2 {
+  grid-area: content3-2;
+}
+#content3-3 {
+  grid-area: content3-3;
+}
+
+#content4 {
+  min-height: 110px;
+  grid-area: content4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-bottom: 2em;
+}
+#content4 h2 {
+  font-size: 2.6rem;
+}
+#content5 {
+  grid-area: content5;
+  display: grid;
+  min-height: 260px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr; 
+  column-gap: 2em;
+  row-gap: 2em;
+  grid-template-areas: "content5-1 content5-2 content5-3";
+}
+#content5-1 {
+  grid-area: content5-1;
+}
+#content5-2 {
+  grid-area: content5-2;
+}
+#content5-3 {
+  grid-area: content5-3;
+}
+#content6 {
+  grid-area: content6;
+}
+footer {
+  background: var(--main-primary-color);
+  grid-area: footer;
+  height: 180px;
+}
+
+/* css search page */
+
+#content-main-search {
+  grid-area: content-main-search;
+  min-height: 440px;
+  display: grid;
+  grid-template-areas: "a a a";
+  column-gap: 2em;
+  row-gap: 2em;
+  grid-auto-rows: 266px;
+  /* grid-auto-columns: 1fr 1fr 1fr; */
+}
+
+.content-search-item {
+  background: #5e47dd;
+}
+
+@media only screen and (max-width: 890px) {
+  #content1 {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "content1-1 content1-1 content1-1"
+      "content1-2 content1-2 content1-3";
+  }
+  nav {
+    grid-template-columns: 0.12fr 1fr 0.12fr;
+    grid-template-areas:
+      "nav1 nav2 nav2"
+      "nav3 nav3 nav3";
+  }
+  #content-main-search {
+    grid-template-areas: "a a";
+  }
+}
+
+/* end ---- max-width: 890px */
+
+@media only screen and (max-width: 550px) {
+  
+  #content1 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "content1-1 content1-1"
+      "content1-2 content1-3";
+  }
+  nav {
+    grid-template-columns: 0.12fr 1.3fr;
+    grid-template-areas:
+      "nav1 nav2"
+      "nav1 nav3";
+  }
+  .nav3 {
+    grid-template-columns: 2.07fr 1fr;
+    grid-template-areas: "nav3-2 nav3-1";
+  }
+
+  #content2 {
+    min-height: 1180px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 3fr 3fr 1.8fr 1.8fr;
+    grid-template-areas:
+      "content2-1"
+      "content2-2"
+      "content2-3"
+      "content2-4"
+      "content2-5";
+  }
+  #content3 {
+    min-height:780px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 3fr 3fr;
+    grid-template-areas:
+      "content3-1"
+      "content3-2"
+      "content3-3";
+  }
+  #content4 {
+    padding-bottom: 0.4em;
+  }
+  #content5 {
+    min-height:780px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 3fr 3fr;
+    grid-template-areas:
+      "content5-1"
+      "content5-2"
+      "content5-3";
+  }
+
+  #content1 .btn-bookmark {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+  #content1 .dropdown {
+    font-size: 0.7rem;
+    width: 100%;
+  }
+  #content-main-search {
+    grid-template-areas: "a";
+  }
+}
+
+/* end ---- max-width: 550px */
